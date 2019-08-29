@@ -1,15 +1,15 @@
-// App.js
-
 import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
-import ArtistList from './../ArtistList/ArtistList.js';
-
+import{HashRouter as Router, Route, Link} from 'react-router-dom';
 import { connect } from 'react-redux'
+
+//router paths
+import ArtistList from '../ArtistList/ArtistList';
+import ArtistForm from '../ArtistForm/ArtistForm';
 
 class App extends Component {
   // Called when the (App) component is created
-  
   
   // DOM is ready
   componentDidMount() { // react Component method
@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   refreshArtists = () => {
-    // just like $.ajax()
     axios({
       method: 'GET',
       url: '/artist'
@@ -39,13 +38,25 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Famous Artists</h1>
-        </header>
-        <br/>
-        <ArtistList  />
+        <Router>
+        
+          <div className="App">
+            <header className="App-header">
+              <h1 className="App-title">Famous Artists</h1>
+            
+            <ul>
+              <li><Link to="/">Artist List</Link></li>
+              <li><Link to="/ArtistForm">Artist Form</Link></li>
+            </ul>
+            </header>
+          
+          
+          <Route exact path="/" component={ArtistList} />
+          <Route path="/ArtistForm" render={()=> <ArtistForm refreshArtists={this.refreshArtists}/>}  />
+
       </div>
+      </Router>
+      
     );
   }
 }

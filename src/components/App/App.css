@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: darkgreen;
-  height: 70px;
+  height: 100px;
   padding: 20px;
   color: white;
 }
@@ -33,3 +33,10 @@ th {
     background-color: #353535;
     color: #B2B2B2;
 }
+
+li {
+  list-style: none;
+  display: inline;
+  padding: 10px;
+}
+
