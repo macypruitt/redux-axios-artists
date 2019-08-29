@@ -5,27 +5,24 @@ import axios from 'axios';
 
 class ArtistForm extends Component {
    state = {
-       artistName: ''
+       name: ''
    }
 
    updateArtist = (event) => {
        this.setState({
-           artistName: event.target.value
+           name: event.target.value
        })
    }
 
    addArtistToList = (event) => {
-    axios.post('/artist', this.state.artistName)
+    axios.post('/artist', this.state)
     .then((response) => {
-      console.log(response);
       this.props.refreshArtists();
     })
     .catch((err) => {
       console.log('POST Error: ', err);
       alert('There was an error not in your favor adding an artist.');
-    });
-
-       this.props.dispatch({type: 'GET_ARTIST_LIST', payload:this.state.artistName});
+    }); 
    }
 
     render() {

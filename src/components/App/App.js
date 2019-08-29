@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import{HashRouter as Router, Route, Link} from 'react-router-dom';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 //router paths
 import ArtistList from '../ArtistList/ArtistList';
