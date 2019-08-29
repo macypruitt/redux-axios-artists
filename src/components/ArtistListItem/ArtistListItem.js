@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import {connect} from 'react-redux';
+
 class ArtistListItem extends Component {
     deleteArtist = () => {
         axios({
@@ -22,4 +24,8 @@ class ArtistListItem extends Component {
     }
 }
 
-export default ArtistListItem;
+const mapStoreToProps = (store) => ({
+    store
+})
+
+export default connect(mapStoreToProps) (ArtistListItem);

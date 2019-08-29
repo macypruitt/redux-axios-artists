@@ -6,11 +6,19 @@ import './index.css';
 import App from './components/App/App';
 import logger from 'redux-logger';
 
+
 // Redux
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
+
+
 const artistReducer = (state = [], action) => {
+    if(action.type === 'GET_ARTIST_LIST') {
+        return [
+            ...action.payload
+        ]
+    }
     return state;
 }
 
