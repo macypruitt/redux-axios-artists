@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 import ArtistList from './../ArtistList/ArtistList.js';
+import {HashRouter as Router, Route, Link} from 'react-router-dom';
 
 class App extends Component {
   // Called when the (App) component is created
